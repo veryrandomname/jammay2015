@@ -1,5 +1,3 @@
-require 'static'
-
 function run(f)
   local timer = 0
   local coStatus, choiceRange, maxtime = coroutine.resume(f)
