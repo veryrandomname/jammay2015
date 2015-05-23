@@ -14,7 +14,7 @@ function run(f)
   end
 end
 
-local game = run(require('testlevel'))
+local game = run(require('level1'))
 local lastbutton
 
 function love.update(dt)

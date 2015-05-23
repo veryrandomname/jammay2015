@@ -106,7 +106,7 @@ end
 
 function speak(s, txt)
 	--os.execute("espeak ".."'".. s.."'")
-	os.execute("echo " .. s .." | " .. "festival --tts")  
+	os.execute("echo \"" .. s .."\" | " .. "festival --tts")  
 	if txt == nil then
 		screentxt = s
 	else
