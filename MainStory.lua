@@ -30,26 +30,31 @@ The Door manifested and swung open, whilst the Flames started to devour the Buil
 Realizing the new hazard was about to consume her life, she made a run, startled by her fear.
 Emerging from the Ruins of her former Imprisonment, Katheryn, weak and broken, took a look at the new Environment, while enjoying her freedom with a sigh of release.]],
 
--- Area: Forrest Island
+-- Area: Forest Island
 intro00002 = [[
 Katheryn moved forward, only to be surprised by a Lakeview.
 The Lake, clear, smooth and of a Color dark as the Night surrounding her, lay still.
 Awaiting.
 She could see the mirror image of the house burning apart, while feeling the heat in her neck.
 The Moon, full and bright climbed the sky-plane, putting the Scene in a gloomy Shade.
-She turned to find herself trapped in an unknown Forrest.
-Lost in a Forrest at Night with the only possible Shelter burning down to a skeleton.
-But there it was, a Pathway leading through the Forrest.
+She turned to find herself trapped in an unknown Forest.
+Lost in a Forest at Night with the only possible Shelter burning down to a skeleton.
+But there it was, a Pathway leading through the Forest.
+]],
+
+-- Interact: Lake
+interactway0001 = [[
+Katheryn wandered towards the Lake.
 ]],
 
 -- Interact: Pathway
-interactway0001 = [[
+interactway0002 = [[
 Although the Pathway was her only possibility to escape, Katheryn shuddered at the thought of venturing into the dark Woods.
 A last look at the remainders of her new memories, flickering in the light air breeze, Sparks blurring her vision.
 She turned around and invoked the ember Flame, a small Familiar to grant Light if needed.
 Advancing, while trying to fight the rampant Foliage, Katheryn heard a loud scrambling noise.
 It seemed to get closer to her, but she couldn't determine the Position of the Sound.
-Distorted by the Forrest, thrown back by the Trees, it was impossible for Katheryn to focus on the Source of the Sound.
+Distorted by the Forest, thrown back by the Trees, it was impossible for Katheryn to focus on the Source of the Sound.
 Shadows where none were and a creeping Sound surrounding her, stirred a Panic which overtook her thoughts.
 Katheryn started to run, following the Pathway in hope of a safe exit.
 But there was no escape from the demonic Foliage around her.
