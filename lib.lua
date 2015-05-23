@@ -6,13 +6,15 @@ function timedChoice(maxtime, fail, ... )
     return fail(time)
   else
     local f = arg[c]
-    return f(time)
+    return f
   end
 end
 
 function choice(...)
   return timedChoice(math.huge, function()end, ...)
 end
+
+--character specificfunctions
 
 
 character = {
@@ -21,6 +23,8 @@ character = {
 	mentalhealth = 100,
 	bleeding = false,
 	damage = 10,	
+	block = 7,
+	dex = 10,
 	inventory = {{name="dummy"},{name="A Red Blue Unicorn"}
 
 			
@@ -34,67 +38,69 @@ function status()
 	end
 
 	local f = ""
-	if hunger >= 95 then 
+	if character.hunger >= 95 then 
 		addspeak("You are not hungry at all, this makes you feel more convenient.")
-		mentalhealth = mentalhealth + 3
-	elseif hunger >= 70 then
+		character.mentalhealth = character.mentalhealth + 3
+	elseif character.hunger >= 70 then
 		addspeak("You feel slightly hungry.")
-	elseif hunger >= 50 then
+	elseif character.hunger >= 50 then
 		addspeak("You are hungry you should eat something.")
-	elseif hunger >= 25 then
+	elseif character.hunger >= 25 then
 		addspeak("You feel really hungry, you feel dizzy")
-		mentalhealth = mentalhealth - 5
+		character.mentalhealth = character.mentalhealth - 5
 	elseif hunger >= 1 then
 		addspeak("You are almost starving. You need to eat somthing!")
-		mentalhealth = mentalhealth - 10
+		character.mentalhealth = character.mentalhealth - 10
 	else
 		addspeak("Your stomach hurts.")
-		health = health - 20
-		mentalhealth = mentalhealth - 10
+		character.health = character.health - 20
+		character.mentalhealth = character.mentalhealth - 10
 	end
 	
 	--apply hunger
-	hunger = hunger - 3
+	character.hunger = character.hunger - 3
 
 	--apply bleeding
-	if bleeding == true then
+	if character.bleeding == true then
 		addspeak("You lose blood.")
-		health = health - 10
-		mentalhealth = mentalhealth - 5
+		character.health = character.health - 10
+		character.mentalhealth = character.mentalhealth - 5
 	end
 
 	--health section
-	if health >= 100 and not bleeding then
+	if character.health >= 100 and not character.bleeding then
 		addspeak("You are physical alright and feel strong.")
-	elseif health >= 80 and not bleeding then
+	elseif character.health >= 80 and not character.bleeding then
 		addspeak("You have some small injuries, but you feel okay.")		
-	elseif health >= 50 then 
+	elseif character.health >= 50 then 
 		addspeak("You feel pain when you, while moving.")
-	elseif health >= 30 then 
+	elseif character.health >= 30 then 
 		addspeak("You problems when you try to move forward.")
-	elseif health < 30 and health > 0 then
+	elseif character.health < 30 and character.health > 0 then
 		addspeak("You feel pain, you concerns about your situation")
-		mentalhealth = mentalhealth - 5  
-	elseif health <= 0 then
+		character.mentalhealth = character.mentalhealth - 5  
+	elseif character.health <= 0 then
 		addspeak("The world turns black. You are dead.")		
+		os.exit()	
 	end
 
 	--mentalhealth
 
-	if mentalhealth >= 100 then
+	if character.mentalhealth >= 100 then
 		addspeak("You are confident and feel conscious.")
-	elseif mentalhealth >= 80 then
+	elseif character.mentalhealth >= 80 then
 		addspeak("You have mixed feelings.")
-	elseif mentalhealth >= 60 then
+	elseif character.mentalhealth >= 60 then
 		addspeak("You have mixed feelings and you don't feel confident anylonger.")
-	elseif mentalhealth >= 30 then
+	elseif character.mentalhealth >= 30 then
 		addspeak("You feel inconvenient.")
-	elseif mentalhealth >= 15 then
+	elseif character.mentalhealth >= 15 then
 		addspeak("You feel dizzy. You start to see blurry.") 
-	elseif mentalhealth < 15 and mentalhealth > 0 then
+	elseif character.mentalhealth < 15 and character.mentalhealth > 0 then
 		addspeak("You are scared. You cannot see clear shape and have headache.")
 	else
 		addspeak("The world turns black and you lose consciousness.")
+		os.exit()	
 	end
 	
 	--return the whole status
@@ -129,11 +135,115 @@ function character.inventory:show()
 	end
 end
 
-character.inventory:add({name = "appel",
-typ = food,
-use = 
-function()
-	hunger = hunger + 4
+function fight(enemy)
+	while(character.health > 0 and enemy health > 0)do
+		enemy.moves[math.random(1,#enemy.moves)]
+	end
+	character.status()
+end
+
+
+bear ={
+	moves = {
+	leftpunch = 
+	function() 
+		speak("The bear is preparing an attack with its left paw.")
+		displayChoice = {"Block left", "Block right", "Attack right",
+				 "Attack left", "Dodge to the left", 
+				 "Dodge to the right"}
+		local c = timedChoice(
+			10, 
+			function()
+				speak("The bear hits her right arm.")
+				
+			end,
+			character.dodgeLeft,
+			character.dodgeRight,
+			character.attackLeft,
+			character.attackRight,
+			character.blockLeft,
+			character.blockRight
+			)
+		local result = c()
+		if c == character.dodgeRight and result == true then
+			speak("She was succesful.")
+		
+		elseif (character.dodgeLeft or character.attackLeft or	character.attackRight or 
+			character.blockLeft or character.blockRight) then
+			speak("The bear hits her.")
+			character.health = character.health - 10
+		end
+	end,
+	rightpunch = function()
+		speak("The bear is preparing an attack with its right paw.")
+		displayChoice = {"Block left", "Block right", "Attack right",
+				 "Attack left", "Dodge to the left", 
+				 "Dodge to the right"}
+		local c = timedChoice(
+			10, 
+			function()
+				speak("The bear hits her right arm.")
+				
+			end,
+			character.dodgeLeft,
+			character.dodgeRight,
+			character.attackLeft,
+			character.attackRight,
+			character.blockLeft,
+			character.blockRight
+			)
+		result = c()
+		if c == character.dodgeRight and result == true then
+			speak("She was succesful.")
+		
+		elseif (character.dodgeLeft or character.attackLeft or	character.attackRight or 
+			character.blockLeft or character.blockRight) then
+			speak("The bear hits her.")
+			character.health = character.health - 10
+		end
+	end,
+	dodge = function()
+		speak("The bear tries to dodge your attack.")
+		if(math.radom(1,20) > 4) then
+			speak("But she hits him.")
+			enemy.health = enemy.health - character.damage
+			
+		end
+	end
+	
+}	
+character.dodgeLeft = function()
+	speak("She tries to dodge to the left.")
+	if(math.radom(1, 20) > character.dex) then return false 
+	else return true end
+end
+character.dodgeRight = function()
+	speak("She tries to dodge to the right.)
+	if(math.radom(1, 20) > character.dex) then return false 
+	else return true end
+end
+
+character.attackLeft = function()
+	speak("She tries to Attack her enemy.)
+	if(math.radom(1, 20) > character.dex) then return false 
+	else return true end
+end
+
+character.attackRight = function()
+	speak("She tries to Attack her enemy.)
+	if(math.radom(1, 20) > character.dex) then return false 
+	else return true end
+end
+
+
+character.blockLeft = function()
+	speak("She tries to block the attack on your left side.")
+	if(math.radom(1, 20) > character.block) then return false 
+	else return true end
+end
+character.blockRight = function()
+	speak("She tries to block the attack on your right side.")
+	if(math.radom(1, 20) > character.block) then return false 
+	else return true end
 end
 }
-)
