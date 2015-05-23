@@ -45,6 +45,10 @@ But there it was, a Pathway leading through the Forest.
 -- Interact: Lake
 interactway0001 = [[
 Katheryn wandered towards the Lake.
+She kneeled down and started to rinse the dirt of her Face.
+A reflection of herself appeared before her, with a quick smile rushing across her Face.
+Cool and refreshing, a sip from the water, ran down her Throat and greedily she drank more and more.
+Minutes passed by and Katheryn walked back to the burning skeleton.
 ]],
 
 -- Interact: Pathway
