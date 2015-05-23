@@ -60,7 +60,7 @@ function love.draw()
   end
   love.graphics.setColor(100,100,255)
   if choiceDisplay[3] then
-    love.graphics.print("X " .. choiceDisplay[3], cd-cd, dy) 
+    love.graphics.print("X " .. choiceDisplay[3], cx-cd, cy) 
   else
     love.graphics.print("X", cx-cd, cy) 
   end

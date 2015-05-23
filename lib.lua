@@ -33,11 +33,12 @@ character = {
 	}
 	
 function status()
+	local f = ""
+
 	local function addspeak(string)
-        	f = f  .. "\n" .. string2
+        	f = f  .. "\n" .. string
 	end
 
-	local f = ""
 	if character.hunger >= 95 then 
 		addspeak("You are not hungry at all, this makes you feel more convenient.")
 		character.mentalhealth = character.mentalhealth + 3
@@ -143,7 +144,7 @@ function fight(enemy)
 	while(character.health > 0 and enemy.health > 0)do
 		m[math.random(1,#m)]()
 	end
-	character.status()
+	status()
 end
 
 
@@ -152,7 +153,7 @@ bear.moves = {
 	leftpunch = 
 	function() 
 		speak("The bear is preparing an attack with its left paw.")
-		displayChoice = {"Block left", "Block right", "Attack right",
+		choiceDisplay = {"Block left", "Block right", "Attack right",
 				 "Attack left", "Dodge to the left", 
 				 "Dodge to the right"}
 		local result, c= timedChoice(
@@ -180,7 +181,7 @@ bear.moves = {
 	end,
 	rightpunch = function()
 		speak("The bear is preparing an attack with its right paw.")
-		displayChoice = {"Block left", "Block right", "Attack right",
+		choiceDisplay = {"Block left", "Block right", "Attack right",
 				 "Attack left", "Dodge to the left", 
 				 "Dodge to the right"}
 		local result, c = timedChoice(
