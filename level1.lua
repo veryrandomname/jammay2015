@@ -1,6 +1,8 @@
 require("lib")
 local text = require("MainStory")
 
+speak = print
+
 function level()
   local room = 0
   local chest,door,forest
@@ -11,6 +13,7 @@ function level()
     character.inventory:add({name = "rags"})
     character.inventory:add({name = "sack"})
     character.inventory:add({name = "robe"})
+    choiceDisplay = {"door"}
     choice(door)
   end
   door = function()
@@ -19,9 +22,12 @@ function level()
   end
   forest = function()
     speak(text.intro00002)
+    --status()
   end
 
-  choice(chest,door)
+  choiceDisplay = {"chest","door"}
+  --choice(chest,door)
+  timedChoice(5,nil,chest,door)
 
   error("end")
 end
