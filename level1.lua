@@ -42,8 +42,8 @@ function level()
   end
 
   choiceDisplay = {"chest","door"}
-  --choice(chest,door)
-  timedChoice(5,nil,chest,door)
+  choice(chest,door)
+  --timedChoice(5,nil,chest,door)
 
   error("end")
 end

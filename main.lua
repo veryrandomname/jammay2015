@@ -23,7 +23,7 @@ local timer,maxtime
 function love.load()
   width, height = love.graphics.getDimensions( )
 
-  cx,cy,cd = width*0.45, height*0.45, height*0.2
+  cx,cy,cd = width*0.45, height*0.55, height*0.2
 
   love.graphics.setBackgroundColor(23,46,58)
 
@@ -70,6 +70,18 @@ function love.draw()
   else
     love.graphics.print("Y", cx, cy-cd) 
   end
+  if choiceDisplay[5] then
+    love.graphics.print("LB " .. choiceDisplay[5], cx-2*cd, cy-2*cd) 
+  else
+    love.graphics.print("LB", cx-2*cd, cy-2*cd) 
+  end
+  if choiceDisplay[6] then
+    love.graphics.print("RB " .. choiceDisplay[6], cx+2*cd, cy-2*cd) 
+  else
+    love.graphics.print("RB", cx+2*cd, cy-2*cd) 
+  end
+
+
 
   local p = (maxtime - timer)/maxtime
   love.graphics.setColor(200/p,200*p,200*p)
