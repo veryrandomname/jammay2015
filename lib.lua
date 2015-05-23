@@ -6,7 +6,7 @@ function timedChoice(maxtime, fail, ... )
     return fail(time)
   else
     local f = arg[c]
-    return f
+    return f(time), f
   end
 end
 
@@ -136,22 +136,26 @@ function character.inventory:show()
 end
 
 function fight(enemy)
+	local m ={}
+	for k,v in pairs(enemy.moves) do	
+		table.insert(m,v) 
+	end
 	while(character.health > 0 and enemy.health > 0)do
-		enemy.moves[math.random(1,#enemy.moves)]()
+		m[math.random(1,#m)]()
 	end
 	character.status()
 end
 
 
-bear ={
-	moves = {
+bear= {health = 20}
+bear.moves = {
 	leftpunch = 
 	function() 
 		speak("The bear is preparing an attack with its left paw.")
 		displayChoice = {"Block left", "Block right", "Attack right",
 				 "Attack left", "Dodge to the left", 
 				 "Dodge to the right"}
-		local c = timedChoice(
+		local result, c= timedChoice(
 			10, 
 			function()
 				speak("The bear hits her right arm.")
@@ -164,7 +168,7 @@ bear ={
 			character.blockLeft,
 			character.blockRight
 			)
-		local result = c()
+		
 		if c == character.dodgeRight and result == true then
 			speak("She was succesful.")
 		
@@ -179,7 +183,7 @@ bear ={
 		displayChoice = {"Block left", "Block right", "Attack right",
 				 "Attack left", "Dodge to the left", 
 				 "Dodge to the right"}
-		local c = timedChoice(
+		local result, c = timedChoice(
 			10, 
 			function()
 				speak("The bear hits her right arm.")
@@ -192,7 +196,7 @@ bear ={
 			character.blockLeft,
 			character.blockRight
 			)
-		result = c()
+		
 		if c == character.dodgeRight and result == true then
 			speak("She was succesful.")
 		
@@ -204,48 +208,47 @@ bear ={
 	end,
 	dodge = function()
 		speak("The bear tries to dodge your attack.")
-		if(math.radom(1,20) > 4) then
+		if(math.random(1,20) > 4) then
 			speak("But she hits him.")
-			enemy.health = enemy.health - character.damage
+			bear.health = bear.health - character.damage
 			
 		end
 	end
 	}
 	
-}	
 character.dodgeLeft = function()
 	speak("She tries to dodge to the left.")
-	if(math.radom(1, 20) > character.dex) then return false 
+	if(math.random(1, 20) > character.dex) then return false 
 	else return true end
 end
 character.dodgeRight = function()
 	speak("She tries to dodge to the right.")
-	if(math.radom(1, 20) > character.dex) then return false 
+	if(math.random(1, 20) > character.dex) then return false 
 	else return true end
 end
 
 character.attackLeft = function()
 	speak("She tries to Attack her enemy.")
-	if(math.radom(1, 20) > character.dex) then return false 
+	if(math.random(1, 20) > character.dex) then return false 
 	else return true end
 end
 
 character.attackRight = function()
 	speak("She tries to Attack her enemy.")
-	if(math.radom(1, 20) > character.dex) then return false 
+	if(math.random(1, 20) > character.dex) then return false 
 	else return true end
 end
 
 
 character.blockLeft = function()
 	speak("She tries to block the attack on your left side.")
-	if(math.radom(1, 20) > character.block) then return false 
+	if(math.random(1, 20) > character.block) then return false 
 	else return true end
 end
 character.blockRight = 
 function()
 	speak("She tries to block the attack on your right side.")
-	if(math.radom(1, 20) > character.block) then return false 
+	if(math.random(1, 20) > character.block) then return false 
 	else return true end
 end
 
