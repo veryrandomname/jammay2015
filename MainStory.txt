@@ -1,3 +1,4 @@
+// Area: Abandoned House
 The Heroine awoke.
 It was so darn dark in the Room, in which she awoke, she could barely see her own hands.
 Her back was wet from the soaked Hay she arose from.
@@ -21,4 +22,8 @@ It was dark again.
 But then a sudden reddish glow emerged from the ensign, a crackle to be heard.
 Flames burst forth, enlightening the housing.
 In panic she stumbled backward.
-The Door manifested and swung open, whilst the Flames started to devour the Building. 
+The Door manifested and swung open, whilst the Flames started to devour the Building.
+Realizing the new hazard was about to consume her life, she made a run, startled by her fear.
+Emerging from the Ruins of her former Imprisonment, the Heroine, weak and broken, took a look at the new Environment, while enjoying her freedom with a sigh of release.
+
+// Area: Forrest Island
