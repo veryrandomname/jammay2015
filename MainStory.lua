@@ -50,7 +50,7 @@ She turned around and invoked the ember Flame, a small Familiar to grant Light i
 Advancing, while trying to fight the rampant Foliage, Katheryn heard a loud scrambling noise.
 It seemed to get closer to her, but she couldn't determine the Position of the Sound.
 Distorted by the Forrest, thrown back by the Trees, it was impossible for Katheryn to focus on the Source of the Sound.
-Shadows where none were and a creeping Sound surrounding her, cause a Panic which stirred up and overtook her thoughts.
+Shadows where none were and a creeping Sound surrounding her, stirred a Panic which overtook her thoughts.
 Katheryn started to run, following the Pathway in hope of a safe exit.
 But there was no escape from the demonic Foliage around her.
 She tripped and fell over, rolling down an inclined slope.
