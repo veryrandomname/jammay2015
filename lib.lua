@@ -3,10 +3,10 @@ function timedChoice(maxtime, fail, ... )
   local time,c = coroutine.yield(#arg,maxtime)
 
   if time > maxtime then
-    return fail()
+    return fail(time)
   else
     local f = arg[c]
-    return f()
+    return f(time)
   end
 end
 
