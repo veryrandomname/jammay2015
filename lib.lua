@@ -136,8 +136,8 @@ function character.inventory:show()
 end
 
 function fight(enemy)
-	while(character.health > 0 and enemy health > 0)do
-		enemy.moves[math.random(1,#enemy.moves)]
+	while(character.health > 0 and enemy.health > 0)do
+		enemy.moves[math.random(1,#enemy.moves)]()
 	end
 	character.status()
 end
@@ -210,6 +210,7 @@ bear ={
 			
 		end
 	end
+	}
 	
 }	
 character.dodgeLeft = function()
@@ -218,19 +219,19 @@ character.dodgeLeft = function()
 	else return true end
 end
 character.dodgeRight = function()
-	speak("She tries to dodge to the right.)
+	speak("She tries to dodge to the right.")
 	if(math.radom(1, 20) > character.dex) then return false 
 	else return true end
 end
 
 character.attackLeft = function()
-	speak("She tries to Attack her enemy.)
+	speak("She tries to Attack her enemy.")
 	if(math.radom(1, 20) > character.dex) then return false 
 	else return true end
 end
 
 character.attackRight = function()
-	speak("She tries to Attack her enemy.)
+	speak("She tries to Attack her enemy.")
 	if(math.radom(1, 20) > character.dex) then return false 
 	else return true end
 end
@@ -241,9 +242,10 @@ character.blockLeft = function()
 	if(math.radom(1, 20) > character.block) then return false 
 	else return true end
 end
-character.blockRight = function()
+character.blockRight = 
+function()
 	speak("She tries to block the attack on your right side.")
 	if(math.radom(1, 20) > character.block) then return false 
 	else return true end
 end
-}
+
