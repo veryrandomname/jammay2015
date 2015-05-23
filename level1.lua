@@ -1,7 +1,7 @@
 require("lib")
 local text = require("MainStory")
 
-speak = print
+--speak = print
 
 function level()
   local room = 0

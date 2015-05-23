@@ -157,7 +157,7 @@ bear.moves = {
 				 "Attack left", "Dodge to the left", 
 				 "Dodge to the right"}
 		local result, c= timedChoice(
-			10, 
+			20, 
 			function()
 				speak("The bear hits her right arm.")
 				
@@ -185,7 +185,7 @@ bear.moves = {
 				 "Attack left", "Dodge to the left", 
 				 "Dodge to the right"}
 		local result, c = timedChoice(
-			10, 
+			20, 
 			function()
 				speak("The bear hits her right arm.")
 				
