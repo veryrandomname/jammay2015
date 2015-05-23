@@ -57,6 +57,7 @@ She tripped and fell over, rolling down an inclined slope.
 Her Body was stopped by brute Force, crashing against a Trunk.
 Losing consciousness and vision, the imminent Shadow approaching her.
 A Slash and a Flash of Pain recalling her Senses, as her primal Instincts kicked in.
+She grabbed a Branch to support her Weight.
 Crippled, but willing, she stood up to fight her Opponent.
 ]],
 
